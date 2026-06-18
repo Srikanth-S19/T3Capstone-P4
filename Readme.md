@@ -39,13 +39,15 @@ The company wants a simple internal service that can return churn-risk predictio
 
 4. ### Input Files
 
-| File Name          | Description                                                      |
-| ------------------ | ---------------------------------------------------------------- |
-| `model.pkl`        | Trained model, prepared in Part 4                                |
-| `metrics.json`     | File prepared in Part 3 with Threshold value used for processing |
-| `requirements.txt` | List of Python modules required                                  |
-| `Dockerfile`       | File used to build     Docker container                          |
-| `main.py`          | Python program to run the services                               |
+| File Name             | Description                                                      |
+| --------------------- | ---------------------------------------------------------------- |
+| `model.pkl`           | Trained model, prepared in Part 4                                |
+| `metrics.json`        | File prepared in Part 3 with Threshold value used for processing |
+| `requirements.txt`    | List of Python modules required                                  |
+| `Dockerfile`          | File used to build     Docker container                          |
+| `main.py`             | Python program to run the services                               |
+| `test_api_predict.py` | Python program to test "/predict" service                        |
+| `test_api_batch.py`   | Python program to test "/batch_predict" service                  |
 
 ### Program Execution
 
@@ -54,24 +56,24 @@ The company wants a simple internal service that can return churn-risk predictio
 using below command :
   
   `docker run -d --name churn_service -p 8000:8000 churn-api:v1.0.0`
+  
+2. In a web browser, type the following URL :
+   http://127.0.0.1/docs
+   
+   to open up the testing interface. 
+   This will allow testing all the endpoints (/health, /predict 
+     & /batch_predict)
+   
+3. In a shell (or command prompt) window, type the below commands to 
+   execute two test programs :
+   a) python test_api_predict.py # this will run the single customer prediction
+   b) python test_api_batch.py   # this will run batch prediction api
 ```
-
-### Output Data Files (Under "data" folder)
-
-| File Name                                                                   | Description                                                                                                                                                                            |
-| --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `model.pkl`                                                                 | Trained model, saved for Part 4                                                                                                                                                        |
-| `metrics.json`                                                              | file with <br/>a) key model metrics - accuracy, precision, recall, F1-score, ROC-AUC<br/>b) Confusion matrix values - at 0.5 (default) and threshold value<br/>c) Threshold value<br/> |
-| X_train_prepared.csv    <br/>X_test_prepared.csv    <br/>X_val_prepared.csv | Stored Train, Test and Validation data - generated on every run                                                                                                                        |
-| y_train_prepared.csv<br/>y_test_prepared.csv<br/>y_val_prepared.csv         | Stored Train, Test and Validation data - generated on every run                                                                                                                        |
-
-
-
-
 
 ### Documents
 
-| File Name             | Description                                 |
-| --------------------- | ------------------------------------------- |
-| `monitoring_plan.md`  | Monitoring plan for service                 |
-| `usage_guidelines.md` | How the model should and should not be used |
+| File Name              | Description                                         |
+| ---------------------- | --------------------------------------------------- |
+| `monitoring_plan.md`   | Monitoring plan for service                         |
+| `usage_guidelines.md`  | How         the model should and should not be used |
+| `test_data_results.md` | Test data and results                               |

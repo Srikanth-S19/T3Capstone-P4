@@ -30,4 +30,4 @@ COPY metrics.json /app/
 EXPOSE 8000
 
 # 9. Run the application using Uvicorn server when the container boots
-CMD ["uvicorn", "main:app", "--host", "127.0.0.1", "--port", "8000"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
