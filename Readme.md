@@ -71,7 +71,7 @@ using below command :
 
 ### Documents
 
-| File Name            | Description                                   |
-| -------------------- | --------------------------------------------- |
-| `monitoring_plan.md` | Monitoring plan for service                   |
-| ``                   | A structured model card, explaining the model |
+| File Name             | Description                                 |
+| --------------------- | ------------------------------------------- |
+| `monitoring_plan.md`  | Monitoring plan for service                 |
+| `usage_guidelines.md` | How the model should and should not be used |
